@@ -1,0 +1,40 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: item-service
+  datasource:
+    url: jdbc:mysql://localhost:3306/easyexcel
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.jdbc.Driver
+    hikari:
+      maximum-pool-size: 30
+      minimum-idle: 10
+#eureka:
+#  client:
+#    service-url:
+#      defaultZone: http://localhost:10086/eureka
+#  instance:
+#    lease-renewal-interval-in-seconds: 3 #  每隔 5 秒发送一次心跳
+#    lease-expiration-duration-in-seconds: 5 # 10 秒不发送就过期
+#    prefer-ip-address: true
+#    ip-address: 127.0.0.1
+#    instance-id: ${spring.application.name}:${server.port}
+#mybatis: #开启log日志
+ # configuration:
+   # log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+mybatis:
+  #mapper配置文件
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.gsb.pojo
+  #开启驼峰命名
+  configuration:
+    map-underscore-to-camel-case: true
+
+
+
+
+
+
+

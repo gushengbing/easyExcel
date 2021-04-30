@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.gsb.mapper.DemoDataMapper">
+    <resultMap id="DemoMap" type="com.gsb.pojo.DemoData">
+        <result column="string" property="string"  />
+        <result column="date" property="date"  />
+        <result column="doubleData" property="doubleData"  />
+    </resultMap>
+
+    <select id="qurey" resultType="DemoData">
+        SELECT * FROM excel
+    </select>
+    <insert id="insertDemo" parameterType="com.gsb.pojo.DemoData">
+        INSERT INTO excel (string,date,doubleData) VALUES(#{string},#{date},#{doubleData})
+    </insert>
+<!--循环查询-->
+<!--    <select id="qureyAllByIds" resultType="java.util.List" resultMap="java.util.Map" >-->
+<!--        SELECT * FROM excel where string in(-->
+<!--            <foreach collection="ids" item="id" index="index" open="(" separator="," close=")">-->
+<!--                #{id}-->
+<!--            </foreach>-->
+<!--        )-->
+<!--    </select>-->
+</mapper>
